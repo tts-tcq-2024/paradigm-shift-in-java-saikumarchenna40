@@ -9,8 +9,6 @@ public class Main {
 		boolean isValidTemp = false;
 		if (temperature >=0 && temperature <= 45) {
 			isValidTemp = true;
-		} else {
-			System.out.println("Temperature is out of range!");
 		}
 		return isValidTemp;
 		
@@ -20,8 +18,6 @@ public class Main {
 		boolean isValidSoc = false;
 		if (soc >= 20 && soc <= 80) {
 			isValidSoc = true;
-		} else {
-			System.out.println("State of Charge is out of range!");
 		}
 		return isValidSoc;
 	}
@@ -30,8 +26,6 @@ public class Main {
 		boolean isValidChargeRate = false;
 		if (chargeRate <= 0.8) {
 			isValidChargeRate = true;
-		} else {
-			 System.out.println("Charge Rate is out of range!");
 		}
 		return isValidChargeRate;
 	}
