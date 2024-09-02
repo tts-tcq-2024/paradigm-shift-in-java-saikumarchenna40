@@ -2,10 +2,10 @@ package vitals;
 
 public class Main {
     static boolean batteryIsOk(float temperature, float soc, float chargeRate) {
-        return (validateTemperature(temperature) && validateSoc(soc) && validateChargeRate(chargeRate));
+        return (isValidTemperature(temperature) && isValidSoc(soc) && isValidChargeRate(chargeRate));
     }
 
-	static boolean validateTemperature(float temperature) {
+	static boolean isValidTemperature(float temperature) {
 		boolean isValidTemp = false;
 		if (temperature >=0 && temperature <= 45) {
 			isValidTemp = true;
@@ -14,7 +14,7 @@ public class Main {
 		
 	}
 	
-	static boolean validateSoc(float soc) {
+	static boolean isValidSoc(float soc) {
 		boolean isValidSoc = false;
 		if (soc >= 20 && soc <= 80) {
 			isValidSoc = true;
@@ -22,7 +22,7 @@ public class Main {
 		return isValidSoc;
 	}
 	
-	static boolean validateChargeRate(float chargeRate) {
+	static boolean isValidChargeRate(float chargeRate) {
 		boolean isValidChargeRate = false;
 		if (chargeRate <= 0.8) {
 			isValidChargeRate = true;
