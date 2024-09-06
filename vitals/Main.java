@@ -1,34 +1,20 @@
 package vitals;
 
 public class Main {
-    static boolean batteryIsOk(float temperature, float soc, float chargeRate) {
-        return (isValidTemperature(temperature) && isValidSoc(soc) && isValidChargeRate(chargeRate));
-    }
+   static boolean batteryIsOk(float temperature, float soc, float chargeRate) {
+	   System.out.println("Received Temperature: " + temperature);
+	   System.out.println("Received SoC: " + soc);
+	   System.out.println("Received ChargeRate: " + chargeRate);
+    return isWithinRange(temperature, 0, 45) && isWithinRange(soc, 20, 80) && isChargeRateValid(chargeRate);
+}
 
-	static boolean isValidTemperature(float temperature) {
-		boolean isValidTemp = false;
-		if (temperature >=0 && temperature <= 45) {
-			isValidTemp = true;
-		}
-		return isValidTemp;
-		
-	}
-	
-	static boolean isValidSoc(float soc) {
-		boolean isValidSoc = false;
-		if (soc >= 20 && soc <= 80) {
-			isValidSoc = true;
-		}
-		return isValidSoc;
-	}
-	
-	static boolean isValidChargeRate(float chargeRate) {
-		boolean isValidChargeRate = false;
-		if (chargeRate <= 0.8) {
-			isValidChargeRate = true;
-		}
-		return isValidChargeRate;
-	}
+static boolean isWithinRange(float value, float min, float max) {
+    return value >= min && value <= max;
+}
+
+static boolean isChargeRateValid(float chargeRate) {
+    return chargeRate <= 0.8;
+}
 	
     public static void main(String[] args) {
         assert batteryIsOk(25, 70, 0.7f) == true;
