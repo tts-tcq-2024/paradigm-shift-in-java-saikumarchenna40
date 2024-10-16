@@ -17,11 +17,20 @@ static boolean isWithinRange(float value, float min, float max, boolean isWarnin
 	
 static void validateTolerance(float value, float min, float max, int tolerencePercent) {
 	float tolerance = max * (tolerencePercent * 1f);
-	if(value >= min && value <= (min + tolerance)) {
-		 System.out.println("Warning: Approaching discharge");
-	} else if (value >= (max - tolerance) && value <= max) {
-		System.out.println("Warning: Approaching charge-peak");
-	}
+	checkLowerLimit(value, min, tolerance);
+        checkUpperLimit(value, max, tolerance);
+}
+
+static void checkLowerLimit(float value, float min, float tolerance) {
+    if (value >= min && value <= (min + tolerance)) {
+        System.out.println("Warning: Approaching discharge");
+    }
+}
+
+static void checkUpperLimit(float value, float max, float tolerance) {
+    if (value >= (max - tolerance) && value <= max) {
+        System.out.println("Warning: Approaching charge-peak");
+    }
 }
 	
 static boolean isChargeRateValid(float chargeRate, boolean isWarningRequired, int tolerencePercent) {
