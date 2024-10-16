@@ -35,7 +35,8 @@ static void checkUpperLimit(float value, float max, float tolerance) {
 	
 static boolean isChargeRateValid(float chargeRate, boolean isWarningRequired, int tolerencePercent) {
 	if (isWarningRequired) {
-		validateTolerance(chargeRate, Float.MIN_VALUE, 0.8f, tolerencePercent);
+		float tolerance = 0.8f * (tolerencePercent * 1f);
+		checkUpperLimit(chargeRate, 0.8f, tolerance);
 	}
     return chargeRate <= 0.8;
 }
